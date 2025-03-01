@@ -186,27 +186,6 @@ def generate_fund_flex_message(
                                         "flex": 3
                                     }
                                 ]
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ประเภท",
-                                        "size": "sm",
-                                        "color": "#555555",
-                                        "flex": 2
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": f"{fund_data['fundTypeCode']} - {'ปันผล' if fund_data['isDividendFund'] else 'สะสมมูลค่า'}",
-                                        "size": "sm",
-                                        "color": "#111111",
-                                        "align": "end",
-                                        "flex": 3
-                                    }
-                                ]
                             }
                         ]
                     },
@@ -236,21 +215,21 @@ def generate_fund_flex_message(
         json_object = json.dumps(flex_message)
         result_products_list.append(FlexContainer.from_json(json_object))
 
-        carousel_flex_message = FlexMessage(
-            alt_text=f"ผลการค้นหาสินค้า: {search_query}",
-            contents=FlexCarousel(
-                type="carousel",
-                contents=result_products_list,
-            ),
-        )
-        summary_text = response_dict["summary"]["summaryText"]
-        messages_list = [
-            TextMessage(text=summary_text),
-            carousel_flex_message
-        ]
-        if additional_explain:
-            messages_list.insert(0, TextMessage(text=additional_explain))
+    carousel_flex_message = FlexMessage(
+        alt_text=f"ผลการค้นหาสินค้า: {search_query}",
+        contents=FlexCarousel(
+            type="carousel",
+            contents=result_products_list,
+        ),
+    )
+    summary_text = response_dict["summary"]["summaryText"]
+    messages_list = [
+        TextMessage(text=summary_text),
+        carousel_flex_message
+    ]
+    if additional_explain:
+        messages_list.insert(0, TextMessage(text=additional_explain))
 
-        line_bot_api.reply_message(
-            ReplyMessageRequest(reply_token=event.reply_token, messages=messages_list)
-        )
+    line_bot_api.reply_message(
+        ReplyMessageRequest(reply_token=event.reply_token, messages=messages_list)
+    )
