@@ -11,18 +11,11 @@ from commons.flex_message_builder import (
     
 def handle_text_by_keyword(event, line_bot_api):
     text = event.message.text
-    if text.startswith("#ค้นหา"):
-        search_query = text[len("#ค้นหา") :].strip()
-        response_dict = vertex_search_retail_products(search_query)
-        build_products_search_result_carousel(
-            line_bot_api=line_bot_api,
-            event=event,
-            response_dict=response_dict,
-            search_query=search_query,
-        )
-    elif text.startswith("#กองทุน"):
+        
+    if text.startswith("#กองทุน"):
         search_query = text[len("#กองทุน") :].strip()
         response_dict = vertex_search_fund_products(search_query)
+        print(response_dict)
         generate_fund_flex_message(
             line_bot_api=line_bot_api,
             event=event,
@@ -30,5 +23,11 @@ def handle_text_by_keyword(event, line_bot_api):
             search_query=search_query,
         )
     else:
-        detect_intent_text(text=text, session_id=event.source.user_id, line_bot_api=line_bot_api, reply_token=event.reply_token)
+        response_dict = vertex_search_retail_products(text)
+        build_products_search_result_carousel(
+            line_bot_api=line_bot_api,
+            event=event,
+            response_dict=response_dict,
+            search_query=text,
+        )
         
