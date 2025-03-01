@@ -6,7 +6,7 @@ Step:
 
 ### 1. Create a GCS bucket (replace with your desired bucket name and location) 
 ```
-export YOUR_BUCKET_NAME=vertex-ai-data-store-gsc
+export YOUR_BUCKET_NAME=vertex-ai-data-store-gsc-2025
 export YOUR_BUCKET_LOCATION=asia-southeast1
 
 gsutil mb -l $YOUR_BUCKET_LOCATION gs://$YOUR_BUCKET_NAME

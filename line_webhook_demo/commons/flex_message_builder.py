@@ -51,18 +51,7 @@ def build_products_search_result_carousel(
 
     messages_list = [
         TextMessage(text=summary_text),
-        carousel_flex_message,
-        TextMessage(
-            text="คุณสามารถกดเพิ่มสินค้าในตระกร้าได้ สอบถามเกี่ยวกับสินค้าอื่นได้ หรือค้นหาสาขาใกล้เคียงได้เลยค่ะ",
-            quick_reply=QuickReply(
-                items=[
-                    QuickReplyItem(
-                        action=MessageAction(label="คุยกับน้อง CJ", text="คุยกับน้อง CJ")
-                    ),
-                    QuickReplyItem(action=LocationAction(label="ค้นหาสาขาใกล้เคียง")),
-                ]
-            ),
-        ),
+        carousel_flex_message
     ]
     if additional_explain:
         messages_list.insert(0, TextMessage(text=additional_explain))
