@@ -23,7 +23,8 @@ def gemini_describe_image(user_id, message_id):
     text_prompt = """จงอธิบายรูปภาพนี้ว่าสินค้าอะไร
             ยกตัวอย่าง: {"explaination":"รูปที่คุณส่งมาเป็นรูปของน้ำดื่ม ยี้ห้อสิงห์ น้ำแร่ธรรมชาติ", "product_description":"น้ำดื่มสิงห์"}
             Use this JSON schema:
-            Language = ภาษาไทย
+            Language = English
+            please explain in English
             Recipe = {'explaination': str, 'product_description': str]}
             Return: Recipe
             """

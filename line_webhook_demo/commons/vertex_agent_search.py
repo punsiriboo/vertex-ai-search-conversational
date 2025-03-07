@@ -103,7 +103,7 @@ def vertex_search_fund_products(
             ignore_adversarial_query=True,
             ignore_non_summary_seeking_query=True,
             model_prompt_spec=discoveryengine.SearchRequest.ContentSearchSpec.SummarySpec.ModelPromptSpec(
-                preamble="Summary the NAV the fund detail and provide recommendation based on YTD value and Answer in Thai"
+                preamble="Summary the NAV the fund detail and provide recommendation based on YTD value and Answer in English"
             ),
             model_spec=discoveryengine.SearchRequest.ContentSearchSpec.SummarySpec.ModelSpec(
                 version="stable",
