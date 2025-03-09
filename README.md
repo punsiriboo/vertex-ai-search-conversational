@@ -1,12 +1,12 @@
 # vertex-ai-search-conversational
 
-
-# Fund Recommendation AI 
+# Product Search - Vertex Search AI 
+# Fund Search - Vertex Search AI 
 Step: 
 
 ### 1. Create a GCS bucket (replace with your desired bucket name and location) 
 ```
-export YOUR_BUCKET_NAME=vertex-ai-data-store-gsc-2025
+export YOUR_BUCKET_NAME=XXXX
 export YOUR_BUCKET_LOCATION=asia-southeast1
 
 gsutil mb -l $YOUR_BUCKET_LOCATION gs://$YOUR_BUCKET_NAME

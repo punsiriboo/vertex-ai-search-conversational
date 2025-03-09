@@ -1,0 +1,4 @@
+export PROJECT_ID=XXXXXX
+export FUNCTION_NAME=vertext_search_line_webhook_handler
+export ENTRY_POINT=callback
+
